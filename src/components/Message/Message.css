@@ -1,0 +1,16 @@
+.Message {
+    border: 1px solid #EFEEEE;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #FFF;
+    width: 50vw;
+    margin-bottom: 40px;
+}
+
+/*TODO: media width под мобилы */
+
+.MessageText {
+    line-height: 40px;
+    letter-spacing: 1px;
+    font-size: 20px;
+}
