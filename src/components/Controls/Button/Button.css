@@ -7,9 +7,10 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  user-select: none;
 }
 
 .ButtonText {
   color: #FFF;
-  font-size: 18px;
+  font-size: 14px;
 }

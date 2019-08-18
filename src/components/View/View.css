@@ -6,10 +6,46 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 .ButtonsWrapper {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+    overflow: scroll;
+    width: 100%;
+}
+
+.ButtonsWrapperMultiple {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: scroll;
+    width: 100%;
+}
+
+input {
+    border: 1px solid #EFEEEE;
+    width: 70%;
+    height: 30px;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+.QuestionsQuantity {
+    margin: 20px;
+    font-size: 14px;
+    color: #8A2BE2;
+}
+
+@media screen and (min-width: 900px) {
+    .ButtonsWrapperMultiple {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: scroll;
+        width: 100%;
+    }
 }
