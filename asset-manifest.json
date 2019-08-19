@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/github.com/room8/static/css/main.f914039e.chunk.css",
-    "main.js": "/github.com/room8/static/js/main.03773a09.chunk.js",
-    "main.js.map": "/github.com/room8/static/js/main.03773a09.chunk.js.map",
-    "runtime~main.js": "/github.com/room8/static/js/runtime~main.6abc8ba1.js",
-    "runtime~main.js.map": "/github.com/room8/static/js/runtime~main.6abc8ba1.js.map",
-    "static/js/2.9918f956.chunk.js": "/github.com/room8/static/js/2.9918f956.chunk.js",
-    "static/js/2.9918f956.chunk.js.map": "/github.com/room8/static/js/2.9918f956.chunk.js.map",
-    "index.html": "/github.com/room8/index.html",
-    "precache-manifest.48c9bfbae109036e5a72007ad207c034.js": "/github.com/room8/precache-manifest.48c9bfbae109036e5a72007ad207c034.js",
-    "service-worker.js": "/github.com/room8/service-worker.js",
-    "static/css/main.f914039e.chunk.css.map": "/github.com/room8/static/css/main.f914039e.chunk.css.map"
+    "main.css": "/github.io/room8/static/css/main.f914039e.chunk.css",
+    "main.js": "/github.io/room8/static/js/main.9f796c6c.chunk.js",
+    "main.js.map": "/github.io/room8/static/js/main.9f796c6c.chunk.js.map",
+    "runtime~main.js": "/github.io/room8/static/js/runtime~main.38692803.js",
+    "runtime~main.js.map": "/github.io/room8/static/js/runtime~main.38692803.js.map",
+    "static/js/2.9918f956.chunk.js": "/github.io/room8/static/js/2.9918f956.chunk.js",
+    "static/js/2.9918f956.chunk.js.map": "/github.io/room8/static/js/2.9918f956.chunk.js.map",
+    "index.html": "/github.io/room8/index.html",
+    "precache-manifest.651af30351cc1f5316b39d12b9754c25.js": "/github.io/room8/precache-manifest.651af30351cc1f5316b39d12b9754c25.js",
+    "service-worker.js": "/github.io/room8/service-worker.js",
+    "static/css/main.f914039e.chunk.css.map": "/github.io/room8/static/css/main.f914039e.chunk.css.map"
   }
 }
