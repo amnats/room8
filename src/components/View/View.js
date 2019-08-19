@@ -3,6 +3,7 @@ import './View.css';
 import Message from '../Message/Message';
 import Button from "../Controls/Button/Button";
 import {textHandler} from "../../data/Text";
+import {sendEmail} from '../../services/emailSender.js';
 
 class View extends React.Component {
   state = {
@@ -90,6 +91,7 @@ class View extends React.Component {
     if (this.state.type === 'roommates' && this.state.index === 8) {
       const {messageData, chooseData, type} = textHandler('last', 0, this.inputHandler, this.state.currentValue);
       this.updateStateHandler(type, messageData, chooseData, 8);
+      sendEmail(this.state.dataForCollect);
     }
 
     if (this.state.currentValue) {
