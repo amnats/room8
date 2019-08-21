@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/room8/static/css/main.f914039e.chunk.css",
-    "main.js": "/room8/static/js/main.cc85e8b3.chunk.js",
-    "main.js.map": "/room8/static/js/main.cc85e8b3.chunk.js.map",
+    "main.js": "/room8/static/js/main.45fd2a6b.chunk.js",
+    "main.js.map": "/room8/static/js/main.45fd2a6b.chunk.js.map",
     "runtime~main.js": "/room8/static/js/runtime~main.013cddc2.js",
     "runtime~main.js.map": "/room8/static/js/runtime~main.013cddc2.js.map",
-    "static/js/2.9918f956.chunk.js": "/room8/static/js/2.9918f956.chunk.js",
-    "static/js/2.9918f956.chunk.js.map": "/room8/static/js/2.9918f956.chunk.js.map",
+    "static/js/2.2f539dbd.chunk.js": "/room8/static/js/2.2f539dbd.chunk.js",
+    "static/js/2.2f539dbd.chunk.js.map": "/room8/static/js/2.2f539dbd.chunk.js.map",
     "index.html": "/room8/index.html",
-    "precache-manifest.7a47837768edf9d8759b22f03b01149d.js": "/room8/precache-manifest.7a47837768edf9d8759b22f03b01149d.js",
+    "precache-manifest.9bb4168edffd3cc9d93b2d866089de24.js": "/room8/precache-manifest.9bb4168edffd3cc9d93b2d866089de24.js",
     "service-worker.js": "/room8/service-worker.js",
     "static/css/main.f914039e.chunk.css.map": "/room8/static/css/main.f914039e.chunk.css.map"
   }
