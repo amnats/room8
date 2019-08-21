@@ -3,7 +3,6 @@ import './View.css';
 import Message from '../Message/Message';
 import Button from "../Controls/Button/Button";
 import {textHandler} from "../../data/Text";
-import {sendEmail} from '../../services/emailSender.js';
 
 class View extends React.Component {
   state = {
@@ -91,7 +90,15 @@ class View extends React.Component {
     if (this.state.type === 'roommates' && this.state.index === 8) {
       const {messageData, chooseData, type} = textHandler('last', 0, this.inputHandler, this.state.currentValue);
       this.updateStateHandler(type, messageData, chooseData, 8);
-      sendEmail(this.state.dataForCollect);
+      
+      this.props.db.collection('profiles')
+        .add(JSON.parse(JSON.stringify(this.state)))
+        .then(function(docRef) {
+          console.log("Document written with ID: ", docRef.id);
+        })
+        .catch(function(error) {
+          console.error("Error adding document: ", error);
+        });
     }
 
     if (this.state.currentValue) {
