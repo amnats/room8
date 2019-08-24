@@ -8,7 +8,10 @@ class View extends React.Component {
   state = {
     type: '',
     index: 0,
-    dataForCollect: [],
+    dataForCollect: {
+      buttons: '',
+      name: '',
+    },
     chooseData: [],
     messageData: '',
     questionsQuantity: 10,
@@ -38,67 +41,134 @@ class View extends React.Component {
 
   nextHandler = (el) => {
     if (el === 'Далее' && this.state.index === 0 && this.state.type === 'start') {
-      const {messageData, chooseData, type} = textHandler('start', 1, this.inputHandler, this.state.currentValue);
+      const {messageData, chooseData, type, name} = textHandler('start', 1, this.inputHandler, this.state.currentValue);
       this.updateStateHandler(type, messageData, chooseData, 1);
+
+      this.setState({
+        dataForCollect: {
+          buttons: this.state.dataForCollect.buttons.concat(el),
+          name,
+        },
+      });
+      window.history.pushState({type, name}, name, `#${name}`);
     }
 
     if (el === 'Далее' && this.state.index === 1 && this.state.type === 'start') {
-      const {messageData, chooseData, type} = textHandler('roommates', 1, this.inputHandler, this.state.currentValue);
+      const {messageData, chooseData, type, name} = textHandler('roommates', 1, this.inputHandler, this.state.currentValue);
       this.updateStateHandler(type, messageData, chooseData, 1);
+
+      this.setState({
+        dataForCollect: {
+          buttons: this.state.dataForCollect.buttons.concat(el),
+          name,
+        },
+      });
+      window.history.pushState({type, name}, name, `#${name}`);
     }
 
-    // if (el === 'Ищу себе соседа') {
-    //   const {messageData, chooseData, type} = textHandler('roommates', 1);
-    //   this.updateStateHandler(type, messageData, chooseData, 1);
-    // }
-
     if (el === 'Отправить' && this.state.type === 'roommates' && this.state.index === 1) {
-      const {messageData, chooseData, type} = textHandler('roommates', 2, this.inputHandler, this.state.currentValue);
+      const {messageData, chooseData, type, name} = textHandler('roommates', 2, this.inputHandler, this.state.currentValue);
       this.updateStateHandler(type, messageData, chooseData, 2);
+
+      this.setState({
+        dataForCollect: {
+          buttons: this.state.dataForCollect.buttons.concat(el),
+          name,
+        },
+      });
+      window.history.pushState('', name, `#${name}`);
     }
 
     if (this.state.type === 'roommates' && this.state.index === 2) {
-      const {messageData, chooseData, type} = textHandler('roommates', 3, this.inputHandler, this.state.currentValue);
+      const {messageData, chooseData, type, name} = textHandler('roommates', 3, this.inputHandler, this.state.currentValue);
       this.updateStateHandler(type, messageData, chooseData, 3);
+
+      this.setState({
+        dataForCollect: {
+          buttons: this.state.dataForCollect.buttons.concat(el),
+          name,
+        },
+      });
+      window.history.pushState({type, name}, name, `#${name}`);
     }
 
     if (this.state.type === 'roommates' && this.state.index === 3) {
-      const {messageData, chooseData, type} = textHandler('roommates', 4, this.inputHandler, this.state.currentValue);
+      const {messageData, chooseData, type, name} = textHandler('roommates', 4, this.inputHandler, this.state.currentValue);
       this.updateStateHandler(type, messageData, chooseData, 4);
+
+      this.setState({
+        dataForCollect: {
+          buttons: this.state.dataForCollect.buttons.concat(el),
+          name,
+        },
+      });
+      window.history.pushState({type, name}, name, `#${name}`);
     }
 
     if (this.state.type === 'roommates' && this.state.index === 4) {
-      const {messageData, chooseData, type} = textHandler('roommates', 5, this.inputHandler, this.state.currentValue);
+      const {messageData, chooseData, type, name} = textHandler('roommates', 5, this.inputHandler, this.state.currentValue);
       this.updateStateHandler(type, messageData, chooseData, 5);
+
+      this.setState({
+        dataForCollect: {
+          buttons: this.state.dataForCollect.buttons.concat(el),
+          name,
+        },
+      });
+      window.history.pushState({type, name}, name, `#${name}`);
     }
 
     if (this.state.type === 'roommates' && this.state.index === 5) {
-      const {messageData, chooseData, type} = textHandler('roommates', 6, this.inputHandler, this.state.currentValue);
+      const {messageData, chooseData, type, name} = textHandler('roommates', 6, this.inputHandler, this.state.currentValue);
       this.updateStateHandler(type, messageData, chooseData, 6);
+
+      this.setState({
+        dataForCollect: {
+          buttons: this.state.dataForCollect.buttons.concat(el),
+          name,
+        },
+      });
+      window.history.pushState({type, name}, name, `#${name}`);
     }
 
     if (this.state.type === 'roommates' && this.state.index === 6) {
-      const {messageData, chooseData, type} = textHandler('roommates', 7, this.inputHandler, this.state.currentValue);
+      const {messageData, chooseData, type, name} = textHandler('roommates', 7, this.inputHandler, this.state.currentValue);
       this.updateStateHandler(type, messageData, chooseData, 7);
+
+
+      this.setState({
+        dataForCollect: {
+          buttons: this.state.dataForCollect.buttons.concat(el),
+          name,
+        },
+      });
+      window.history.pushState({type, name}, name, `#${name}`);
     }
 
     if (this.state.type === 'roommates' && this.state.index === 7) {
-      const {messageData, chooseData, type} = textHandler('roommates', 8, this.inputHandler, this.state.currentValue);
+      const {messageData, chooseData, type, name} = textHandler('roommates', 8, this.inputHandler, this.state.currentValue);
       this.updateStateHandler(type, messageData, chooseData, 8);
+
+      this.setState({
+        dataForCollect: {
+          buttons: this.state.dataForCollect.buttons.concat(el),
+          name,
+        },
+      });
+      window.history.pushState({type, name}, name, `#${name}`);
     }
 
     if (this.state.type === 'roommates' && this.state.index === 8) {
-      const {messageData, chooseData, type} = textHandler('last', 0, this.inputHandler, this.state.currentValue);
+      const {messageData, chooseData, type, name} = textHandler('last', 0, this.inputHandler, this.state.currentValue);
       this.updateStateHandler(type, messageData, chooseData, 8);
-      
-      this.props.db.collection('profiles')
-        .add(JSON.parse(JSON.stringify(this.state)))
-        .then(function(docRef) {
-          console.log("Document written with ID: ", docRef.id);
-        })
-        .catch(function(error) {
-          console.error("Error adding document: ", error);
-        });
+
+      this.setState({
+        dataForCollect: {
+          buttons: this.state.dataForCollect.buttons.concat(el),
+          name,
+        },
+      });
+      window.history.pushState({type, name}, name, `#${name}`);
     }
 
     if (this.state.currentValue) {
@@ -107,15 +177,28 @@ class View extends React.Component {
       })
     }
 
+    if (this.state.type === 'roommates' && this.state.index === 8) {
+      const send = {
+        ...JSON.parse(JSON.stringify(this.state)),
+        sendDate: new Date(),
+      };
+      this.props.db.collection('profiles')
+        .add(send)
+        .then(function(docRef) {
+          console.log("Document written with ID: ", docRef.id);
+        })
+        .catch(function(error) {
+          console.error("Error adding document: ", error);
+        });
+    }
+
     this.setState({
       questionsQuantity: this.state.questionsQuantity - 1,
-      dataForCollect: this.state.dataForCollect.concat(el),
       currentValue: '',
     });
   };
 
   render() {
-    console.log(this.state);
     const {messageData, chooseData} = this.state;
     let buttonsInChooseData = [];
 

@@ -1,24 +1,24 @@
 .View {
-    width: 100vw;
-    height: 100vh;
     background-color: #F9F8F8;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding-top: 50px;
 }
 
 .ButtonsWrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: scroll;
+    overflow: visible;
     width: 100%;
 }
 
 .ButtonsWrapperMultiple {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     overflow: scroll;
@@ -32,6 +32,7 @@ input {
     outline: none;
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
+    text-align: center;
 }
 
 .QuestionsQuantity {
@@ -41,11 +42,17 @@ input {
 }
 
 @media screen and (min-width: 900px) {
+    .View {
+        padding-top: 0;
+        width: 100vw;
+        height: 100vh;
+    }
     .ButtonsWrapperMultiple {
         display: flex;
         align-items: center;
         justify-content: center;
-        overflow: scroll;
+        overflow: visible;
         width: 100%;
+        flex-direction: row;
     }
 }

@@ -13,12 +13,15 @@ firebase.initializeApp({
 
 const db = firebase.firestore();
 
-function App() {
-  return (
-    <div className="App">
-      <View db={db}/>
-    </div>
-  );
+class App extends React.Component {
+
+  render() {
+    return (
+      <div className="App">
+        <View db={db}/>
+      </div>
+    );
+  }
 }
 
 export default App;

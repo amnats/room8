@@ -1,6 +1,12 @@
 import React from "react";
 import './Styles.css';
 
+export const data = {
+  greeting: {
+
+  }
+};
+
 export const textHandler = (type, index, inputHandler, currentInput) => {
 
   if (type === 'start' && index === 0) {
@@ -10,10 +16,11 @@ export const textHandler = (type, index, inputHandler, currentInput) => {
           <div>Привет!</div>
           <div className="Break"/>
           <div>Я бот, меня зовут room8 😊</div>
-          <div>Хочу помочь тебе найти соседа мечты. Расскажи пожалуйста о себе.</div>
+          <div>Я хочу помочь вам найти соседа мечты. Расскажите пожалуйста о себе.</div>
         </>),
       chooseData: ['Далее'],
       type: 'start',
+      name: 'greeting',
     };
   }
 
@@ -21,32 +28,23 @@ export const textHandler = (type, index, inputHandler, currentInput) => {
     return   {
       messageData:
         (<>
-          <div>Пожалуйста оставь свой email для связи</div>
+          <div>Оставьте email для связи</div>
         </>),
       chooseData: ['Далее'],
       type: 'start',
+      name: 'email',
     };
   }
-
-  // if (type === 'chooseFlow' && index === 1) {
-  //   return {
-  //     messageData:
-  //       (<>
-  //         <div>Ты ищешь соседа с подселением к себе в квартиру или хочешь подселиться к кому-нибудь?!</div>
-  //       </>),
-  //     chooseData: ['Ищу себе соседа', 'Хочу подселиться'],
-  //     type: 'chooseFlow',
-  //   };
-  // }
 
   if (type === 'roommates' && index === 1) {
     return {
       messageData:
         (<>
-          <div>Где хочешь жить? Подойдет станция метро или район.</div>
+          <div>Где вы хотите жить? Подойдет станция метро или район.</div>
         </>),
       chooseData: ['Отправить'],
       type: 'roommates',
+      name: 'location',
     };
   }
 
@@ -54,10 +52,11 @@ export const textHandler = (type, index, inputHandler, currentInput) => {
     return {
       messageData:
         (<>
-          <div>Сколько времени ты готов потратить на поиск?</div>
+          <div>Сколько времени вы готовы потратить на поиск?</div>
         </>),
-      chooseData: ['< недели', '< месяца'],
+      chooseData: ['меньше недели', 'меньше месяца', 'больше месяца'],
       type: 'roommates',
+      name: 'timeForSearch',
     };
   }
 
@@ -65,10 +64,11 @@ export const textHandler = (type, index, inputHandler, currentInput) => {
     return {
       messageData:
         (<>
-          <div>Опиши свой род деятельности.</div>
+          <div>Опишите свой род деятельности.</div>
         </>),
-      chooseData: ['Студет', 'IT', 'Юрист', 'Журналист', 'Дизайнер', 'Врач', 'Другое'],
+      chooseData: ['Студент', 'IT', 'Юрист', 'Журналист', 'Дизайнер', 'Врач', 'Другое'],
       type: 'roommates',
+      name: 'job',
     };
   }
 
@@ -76,10 +76,11 @@ export const textHandler = (type, index, inputHandler, currentInput) => {
     return {
       messageData:
         (<>
-          <div>Какое слово лучше всего описывает тебя?</div>
+          <div>Какое слово лучше всего описывает вас?</div>
         </>),
       chooseData: ['Спортсмен', 'Домосед', 'Киноман', 'Кулинар', 'Хайпожор'],
       type: 'roommates',
+      name: 'bestWord',
     };
   }
 
@@ -87,10 +88,11 @@ export const textHandler = (type, index, inputHandler, currentInput) => {
     return {
       messageData:
         (<>
-          <div>Какое слово хуже всего описывает тебя?</div>
+          <div>Какое слово хуже всего описывает вас?</div>
         </>),
       chooseData: ['Спортсмен', 'Домосед', 'Киноман', 'Кулинар', 'Хайпожор'],
       type: 'roommates',
+      name: 'worstWord',
     };
   }
 
@@ -98,11 +100,12 @@ export const textHandler = (type, index, inputHandler, currentInput) => {
     return {
       messageData:
         (<>
-          <div>Закончи предложение.</div>
+          <div>Продолжите предложение.</div>
           <div>Я предпочитаю завтракать ...</div>
         </>),
       chooseData: ['в одиночестве', 'с собеседником'],
       type: 'roommates',
+      name: 'breakfast',
     };
   }
 
@@ -110,10 +113,11 @@ export const textHandler = (type, index, inputHandler, currentInput) => {
     return {
       messageData:
         (<>
-          <div>Сколько тебе лет?</div>
+          <div>Сколько вам лет?</div>
         </>),
       chooseData: ['Отправить'],
       type: 'roommates',
+      name: 'age',
     };
   }
 
@@ -125,6 +129,7 @@ export const textHandler = (type, index, inputHandler, currentInput) => {
         </>),
       chooseData: ['Отправить'],
       type: 'roommates',
+      name: 'additionalComments',
     };
   }
 
@@ -133,10 +138,11 @@ export const textHandler = (type, index, inputHandler, currentInput) => {
       messageData:
         (<>
           <div>Спасибо!</div>
-          <div>Я обработаю информацию и в течение недели буду высылать тебе подходящие анкеты.</div>
+          <div>Я обработаю информацию и в течение недели буду высылать вам подходящие анкеты.</div>
         </>),
       chooseData: [],
       type: 'last',
+      name: 'finish',
     };
   }
 
