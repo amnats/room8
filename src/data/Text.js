@@ -86,15 +86,33 @@ export const blocks = [{
   name: 'finish',
 }];
 
-function getFlattened() {
+function getFlattened(acc, curr, index, arr, rootIndex) {
+  let prev = index - 1;
+  if (prev === -1) {
+    prev = null;
+  }
 
+  let next = index + 1;
+  if (next === arr.length) {
+    next = null;
+  }
+
+  return acc.concat[{
+    prev,
+    ...curr,
+    next
+  }]
 }
 
-let next = 0;
 const flattened = blocks.forEach(
   function(acc, curr, index, arr) {
     if (curr.blocks) {
       // recursion
+    }
+
+    prev = index - 1;
+    if (prev === -1) {
+      prev = null;
     }
 
     next = index + 1;
@@ -103,8 +121,9 @@ const flattened = blocks.forEach(
     }
 
     return acc.concat[{
+      prev,
       ...curr,
-      next: next
+      next
     }]
   },
   []
