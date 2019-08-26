@@ -14,7 +14,6 @@ firebase.initializeApp({
 const db = firebase.firestore();
 
 class App extends React.Component {
-
   render() {
     return (
       <div className="App">

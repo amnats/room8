@@ -2,7 +2,7 @@ import React from 'react';
 import './View.css';
 import Message from '../Message/Message';
 import Button from "../Controls/Button/Button";
-import {textHandler} from "../../data/Text";
+import {textHandler, blocks} from "../../data/Text";
 
 class View extends React.Component {
   state = {
@@ -40,163 +40,37 @@ class View extends React.Component {
   }
 
   nextHandler = (el) => {
-    if (el === 'Далее' && this.state.index === 0 && this.state.type === 'start') {
-      const {messageData, chooseData, type, name} = textHandler('start', 1, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 1);
+    // window.history.pushState({type, name}, name, `#${name}`);
+    // this.updateStateHandler(type, messageData, chooseData, 1);
+    // this.setState({
+    //   dataForCollect: {
+    //     buttons: this.state.dataForCollect.buttons.concat(el),
+    //     name,
+    //   },
+    // });
 
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState({type, name}, name, `#${name}`);
-    }
-
-    if (el === 'Далее' && this.state.index === 1 && this.state.type === 'start') {
-      const {messageData, chooseData, type, name} = textHandler('roommates', 1, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 1);
-
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState({type, name}, name, `#${name}`);
-    }
-
-    if (el === 'Отправить' && this.state.type === 'roommates' && this.state.index === 1) {
-      const {messageData, chooseData, type, name} = textHandler('roommates', 2, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 2);
-
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState('', name, `#${name}`);
-    }
-
-    if (this.state.type === 'roommates' && this.state.index === 2) {
-      const {messageData, chooseData, type, name} = textHandler('roommates', 3, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 3);
-
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState({type, name}, name, `#${name}`);
-    }
-
-    if (this.state.type === 'roommates' && this.state.index === 3) {
-      const {messageData, chooseData, type, name} = textHandler('roommates', 4, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 4);
-
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState({type, name}, name, `#${name}`);
-    }
-
-    if (this.state.type === 'roommates' && this.state.index === 4) {
-      const {messageData, chooseData, type, name} = textHandler('roommates', 5, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 5);
-
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState({type, name}, name, `#${name}`);
-    }
-
-    if (this.state.type === 'roommates' && this.state.index === 5) {
-      const {messageData, chooseData, type, name} = textHandler('roommates', 6, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 6);
-
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState({type, name}, name, `#${name}`);
-    }
-
-    if (this.state.type === 'roommates' && this.state.index === 6) {
-      const {messageData, chooseData, type, name} = textHandler('roommates', 7, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 7);
-
-
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState({type, name}, name, `#${name}`);
-    }
-
-    if (this.state.type === 'roommates' && this.state.index === 7) {
-      const {messageData, chooseData, type, name} = textHandler('roommates', 8, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 8);
-
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState({type, name}, name, `#${name}`);
-    }
-
-    if (this.state.type === 'roommates' && this.state.index === 8) {
-      const {messageData, chooseData, type, name} = textHandler('last', 0, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 8);
-
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState({type, name}, name, `#${name}`);
-    }
-
-    if (this.state.currentValue) {
-      this.setState({
-        inputs: this.state.inputs.concat(this.state.currentValue),
-      })
-    }
-
-    if (this.state.type === 'roommates' && this.state.index === 8) {
-      const send = {
-        ...JSON.parse(JSON.stringify(this.state)),
-        sendDate: new Date(),
-      };
-      this.props.db.collection('profiles')
-        .add(send)
-        .then(function(docRef) {
-          console.log("Document written with ID: ", docRef.id);
-        })
-        .catch(function(error) {
-          console.error("Error adding document: ", error);
-        });
-    }
-
-    this.setState({
-      questionsQuantity: this.state.questionsQuantity - 1,
-      currentValue: '',
-    });
+    // if (this.state.currentValue) {
+    //   this.setState({
+    //     inputs: this.state.inputs.concat(this.state.currentValue),
+    //   })
+    // }
   };
+
+  sendData() {
+    const send = {
+      ...JSON.parse(JSON.stringify(this.state)),
+      sendDate: new Date(),
+    };
+
+    this.props.db.collection('profiles')
+      .add(send)
+      .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(function(error) {
+        console.error("Error adding document: ", error);
+      });
+  }
 
   render() {
     const {messageData, chooseData} = this.state;
@@ -221,7 +95,8 @@ class View extends React.Component {
           type={this.state.type}
           index={this.state.index}
           value={this.state.currentValue}
-          inputHandler={this.inputHandler}>{messageData}</Message>
+          inputHandler={this.inputHandler}>{messageData}
+        </Message>
         {buttons}
       </div>
     );

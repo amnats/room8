@@ -1,8 +1,7 @@
 import React from 'react';
 import './Message.css';
 
-function Message(props) {
-  const {type, value, inputHandler, index} = props;
+function Message({type, value, inputHandler, index, children}) {
 
   let input = '';
 
@@ -14,14 +13,14 @@ function Message(props) {
     input = <input onChange={inputHandler} value={value} type="text"/>;
   }
 
-    return (
-        <div className="Message">
-            <div className="MessageText">
-                {props.children}
-                {input}
-            </div>
-        </div>
-    );
+  return (
+      <div className="Message">
+          <div className="MessageText">
+              {children}
+              {input}
+          </div>
+      </div>
+  );
 }
 
 export default Message;
