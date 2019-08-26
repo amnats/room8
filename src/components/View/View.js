@@ -73,7 +73,9 @@ class View extends React.Component {
   }
 
   render() {
-    const {messageData, chooseData} = this.state;
+    const {messageData, chooseData, index} = this.state;
+    const currBlock = blocks[index];
+
     let buttonsInChooseData = [];
 
     if (chooseData.length) {

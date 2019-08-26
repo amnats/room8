@@ -86,6 +86,30 @@ export const blocks = [{
   name: 'finish',
 }];
 
+function getFlattened() {
+
+}
+
+let next = 0;
+const flattened = blocks.forEach(
+  function(acc, curr, index, arr) {
+    if (curr.blocks) {
+      // recursion
+    }
+
+    next = index + 1;
+    if (next === arr.length) {
+      next = null;
+    }
+
+    return acc.concat[{
+      ...curr,
+      next: next
+    }]
+  },
+  []
+)
+
 export const textHandler = (type, index, inputHandler, currentInput) => {
 
   if (type === 'start' && index === 0) {
