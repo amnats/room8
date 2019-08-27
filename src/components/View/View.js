@@ -2,12 +2,13 @@ import React from 'react';
 import './View.css';
 import Message from '../Message/Message';
 import Button from "../Controls/Button/Button";
-import {textHandler, blocks} from "../../data/Text";
+import {blocks} from "../../data/Text";
 
 class View extends React.Component {
   state = {
     type: '',
     index: 0,
+    block: {},
     dataForCollect: {
       buttons: '',
       name: '',
@@ -17,43 +18,61 @@ class View extends React.Component {
     questionsQuantity: 10,
     inputs: [],
     currentValue: '',
+    form: {}
   };
 
-  updateStateHandler = (type, messageData, chooseData, index) => {
+  updateStateHandler = (type, messageData, chooseData, index, questionsQuantity) => {
+    questionsQuantity = questionsQuantity || this.state.questionsQuantity;
+    const block = blocks[index];
     this.setState({
       type,
       messageData,
       chooseData,
       index,
+      block,
+      questionsQuantity
     });
   };
 
   inputHandler = (e) => {
     this.setState({
-      currentValue: e.target.value,
-    });
-  };
-
-  componentDidMount() {
-    const {messageData, chooseData, type} = textHandler('start', 0, this.inputHandler, this.state.currentValue);
-    this.updateStateHandler(type, messageData, chooseData, 0);
+      form: {
+        ...this.state.form,
+        [this.state.block.name]: e.target.value
+      }
+    })
   }
 
-  nextHandler = (el) => {
-    // window.history.pushState({type, name}, name, `#${name}`);
-    // this.updateStateHandler(type, messageData, chooseData, 1);
-    // this.setState({
-    //   dataForCollect: {
-    //     buttons: this.state.dataForCollect.buttons.concat(el),
-    //     name,
-    //   },
-    // });
+  componentDidMount() {
+    const {messageData, chooseData, type} = blocks[0];
+    this.updateStateHandler(type, messageData, chooseData, 0);
 
-    // if (this.state.currentValue) {
-    //   this.setState({
-    //     inputs: this.state.inputs.concat(this.state.currentValue),
-    //   })
-    // }
+    window.onpopstate = ({state}) => {
+      const {index} = state;
+      const {type, messageData, chooseData} = blocks[index];
+      this.updateStateHandler(type, messageData, chooseData, index, this.state.questionsQuantity + 1);
+    };
+  }
+
+  nextHandler = (childEl) => {
+    const {index} = this.state;
+    const newIndex = index + 1;
+    const block = blocks[newIndex];
+    const {type, messageData, chooseData, name} = block;
+
+    this.setState({
+      dataForCollect: {
+        buttons: this.state.dataForCollect.buttons.concat(childEl),
+        name
+      },
+    });
+
+    this.updateStateHandler(type, messageData, chooseData, newIndex, this.state.questionsQuantity - 1);
+    window.history.pushState({index: newIndex}, name, `#${name}`);
+
+    if (newIndex === blocks.length - 1) {
+      this.sendData();
+    }
   };
 
   sendData() {
@@ -79,8 +98,8 @@ class View extends React.Component {
     let buttonsInChooseData = [];
 
     if (chooseData.length) {
-      buttonsInChooseData = chooseData.map((el, index) => {
-        return <Button key={index} onClick={() => this.nextHandler(el)} text={el} />
+      buttonsInChooseData = chooseData.map((el, elIndex) => {
+        return <Button key={elIndex} onClick={() => this.nextHandler(el)} text={el} />
       });
     }
 
@@ -96,8 +115,10 @@ class View extends React.Component {
         <Message
           type={this.state.type}
           index={this.state.index}
-          value={this.state.currentValue}
-          inputHandler={this.inputHandler}>{messageData}
+          inputHandler={this.inputHandler}
+          value={this.state.form[currBlock.name] || ''}
+        >
+          {messageData}
         </Message>
         {buttons}
       </div>
