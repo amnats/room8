@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import View from './components/View/View';
+import Landing from './Landing/Landing';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
@@ -14,11 +15,17 @@ firebase.initializeApp({
 const db = firebase.firestore();
 
 class App extends React.Component {
+  state = {
+    appIsActive: false,
+  };
 
   render() {
+    const {appIsActive} = this.state;
+
     return (
       <div className="App">
-        <View db={db}/>
+        {appIsActive && <View db={db}/>}
+        <Landing/>
       </div>
     );
   }
