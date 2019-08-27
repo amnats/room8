@@ -48,9 +48,13 @@ class View extends React.Component {
     this.updateStateHandler(type, messageData, chooseData, 0);
 
     window.onpopstate = ({state}) => {
-      const {index} = state;
-      const {type, messageData, chooseData} = blocks[index];
-      this.updateStateHandler(type, messageData, chooseData, index, this.state.questionsQuantity + 1);
+      if (state) {
+        const {index} = state;
+        const {type, messageData, chooseData} = blocks[index];
+        this.updateStateHandler(type, messageData, chooseData, index, this.state.questionsQuantity + 1);
+      } else {
+        this.updateStateHandler(type, messageData, chooseData, 0, this.state.questionsQuantity + 1);
+      }
     };
   }
 
