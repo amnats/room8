@@ -78,7 +78,6 @@
 /* Benefits */
 
 .LandingBenefitsBlock {
-  height: 80vh;
   background-color: #FFFFFF;
   display: flex;
   justify-content: flex-start;
@@ -90,12 +89,13 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  padding: 40px 0;
 }
 
 .LandingBenefitsItemLine {
   width: 50px;
   height: 2px;
-  margin: 10px 0 0 0;
+  margin: 20px 0 0 0;
   background-color: #8A2BE2;
 }
 
@@ -106,15 +106,30 @@
 }
 
 .LandingBenefitsTitle {
-  padding: 100px 0 20px 0;
+  padding: 100px 0 80px 0;
 }
 
 .LandingBenefitsItemTitle {
   font-size: 18px;
   letter-spacing: 1px;
   padding: 0 0 10px 0;
+  line-height: 40px;
 }
 
 .LandingBenefitsItemDescription {
+  color: #747474;
+  line-height: 30px;
+}
+
+.LandingContacts {
+  padding: 30px 0 200px 0;
+}
+
+.LandingContactsTitle {
+  padding: 100px 0 80px 0;
+  text-align: center;
+}
+
+.LandingEmail {
   color: #747474;
 }
