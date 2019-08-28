@@ -68,7 +68,7 @@
 .LandingButton {
   width: 200px;
   height: 50px;
-  background-color: #8A2BE2;
+  background-color: #4b848b;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -96,11 +96,11 @@
   width: 50px;
   height: 2px;
   margin: 20px 0 0 0;
-  background-color: #8A2BE2;
+  background-color: #4b848b;
 }
 
 .LandingBenefitsItemContent {
-  width: 800px;
+  width: 200px;
   padding: 0 40px;
   text-align: justify;
 }
@@ -130,6 +130,24 @@
   text-align: center;
 }
 
-.LandingEmail {
-  color: #747474;
+.LandingEmail a {
+  color: #4b848b;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 500px) {
+  .LandingBenefitsItemContent {
+    width: 300px;
+    padding: 0 40px;
+    text-align: justify;
+  }
+}
+
+
+@media screen and (min-width: 1000px) {
+  .LandingBenefitsItemContent {
+    width: 800px;
+    padding: 0 40px;
+    text-align: justify;
+  }
 }

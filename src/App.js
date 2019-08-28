@@ -19,13 +19,19 @@ class App extends React.Component {
     appIsActive: false,
   };
 
+  appIsActiveHandler = () => {
+    this.setState({
+      appIsActive: true,
+    });
+  };
+
   render() {
     const {appIsActive} = this.state;
 
     return (
       <div className="App">
         {appIsActive && <View db={db}/>}
-        <Landing/>
+        {!appIsActive && <Landing appIsActiveHandler={this.appIsActiveHandler}/>}
       </div>
     );
   }

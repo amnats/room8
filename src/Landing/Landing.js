@@ -1,7 +1,7 @@
 import React from 'react';
 import './Landing.css';
 
-function Landing() {
+function Landing(props) {
   return (
     <>
       <div className="LandingPromoBlock">
@@ -18,7 +18,7 @@ function Landing() {
       </div>
 
       <div className="LandingButtonBlock">
-        <div className="LandingButton SText WhiteFont">
+        <div onClick={() => props.appIsActiveHandler()} className="LandingButton SText WhiteFont">
           Найти соседа
         </div>
       </div>
@@ -65,7 +65,7 @@ function Landing() {
         </div>
 
         <div className="LandingButtonBlock">
-          <div className="LandingButton SText WhiteFont">
+          <div onClick={() => props.appIsActiveHandler()} className="LandingButton SText WhiteFont">
             Найти соседа
           </div>
         </div>
@@ -75,7 +75,7 @@ function Landing() {
             Контакты
           </div>
           <div className="LandingEmail SText">
-            room8.staff@inbox.ru
+            <a href="mailto:room8.staff@inbox.ru">room8.staff@inbox.ru</a>
           </div>
         </div>
 
