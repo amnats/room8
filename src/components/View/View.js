@@ -2,12 +2,13 @@ import React from 'react';
 import './View.css';
 import Message from '../Message/Message';
 import Button from "../Controls/Button/Button";
-import {textHandler} from "../../data/Text";
+import {blocks} from "../../data/Text";
 
 class View extends React.Component {
   state = {
     type: '',
     index: 0,
+    block: {},
     dataForCollect: {
       buttons: '',
       name: '',
@@ -17,194 +18,92 @@ class View extends React.Component {
     questionsQuantity: 10,
     inputs: [],
     currentValue: '',
+    form: {}
   };
 
-  updateStateHandler = (type, messageData, chooseData, index) => {
+  updateStateHandler = (type, messageData, chooseData, index, questionsQuantity) => {
+    questionsQuantity = questionsQuantity || this.state.questionsQuantity;
+    const block = blocks[index];
     this.setState({
       type,
       messageData,
       chooseData,
       index,
+      block,
+      questionsQuantity
     });
   };
 
   inputHandler = (e) => {
     this.setState({
-      currentValue: e.target.value,
-    });
-  };
-
-  componentDidMount() {
-    const {messageData, chooseData, type} = textHandler('start', 0, this.inputHandler, this.state.currentValue);
-    this.updateStateHandler(type, messageData, chooseData, 0);
+      form: {
+        ...this.state.form,
+        [this.state.block.name]: e.target.value
+      }
+    })
   }
 
-  nextHandler = (el) => {
-    if (el === 'Далее' && this.state.index === 0 && this.state.type === 'start') {
-      const {messageData, chooseData, type, name} = textHandler('start', 1, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 1);
+  componentDidMount() {
+    const {messageData, chooseData, type} = blocks[0];
+    this.updateStateHandler(type, messageData, chooseData, 0);
 
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState({type, name}, name, `#${name}`);
-    }
+    window.onpopstate = ({state}) => {
+      if (state) {
+        const {index} = state;
+        const {type, messageData, chooseData} = blocks[index];
+        this.updateStateHandler(type, messageData, chooseData, index, this.state.questionsQuantity + 1);
+      } else {
+        this.updateStateHandler(type, messageData, chooseData, 0, this.state.questionsQuantity + 1);
+      }
+    };
+  }
 
-    if (el === 'Далее' && this.state.index === 1 && this.state.type === 'start') {
-      const {messageData, chooseData, type, name} = textHandler('roommates', 1, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 1);
-
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState({type, name}, name, `#${name}`);
-    }
-
-    if (el === 'Отправить' && this.state.type === 'roommates' && this.state.index === 1) {
-      const {messageData, chooseData, type, name} = textHandler('roommates', 2, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 2);
-
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState('', name, `#${name}`);
-    }
-
-    if (this.state.type === 'roommates' && this.state.index === 2) {
-      const {messageData, chooseData, type, name} = textHandler('roommates', 3, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 3);
-
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState({type, name}, name, `#${name}`);
-    }
-
-    if (this.state.type === 'roommates' && this.state.index === 3) {
-      const {messageData, chooseData, type, name} = textHandler('roommates', 4, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 4);
-
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState({type, name}, name, `#${name}`);
-    }
-
-    if (this.state.type === 'roommates' && this.state.index === 4) {
-      const {messageData, chooseData, type, name} = textHandler('roommates', 5, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 5);
-
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState({type, name}, name, `#${name}`);
-    }
-
-    if (this.state.type === 'roommates' && this.state.index === 5) {
-      const {messageData, chooseData, type, name} = textHandler('roommates', 6, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 6);
-
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState({type, name}, name, `#${name}`);
-    }
-
-    if (this.state.type === 'roommates' && this.state.index === 6) {
-      const {messageData, chooseData, type, name} = textHandler('roommates', 7, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 7);
-
-
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState({type, name}, name, `#${name}`);
-    }
-
-    if (this.state.type === 'roommates' && this.state.index === 7) {
-      const {messageData, chooseData, type, name} = textHandler('roommates', 8, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 8);
-
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState({type, name}, name, `#${name}`);
-    }
-
-    if (this.state.type === 'roommates' && this.state.index === 8) {
-      const {messageData, chooseData, type, name} = textHandler('last', 0, this.inputHandler, this.state.currentValue);
-      this.updateStateHandler(type, messageData, chooseData, 8);
-
-      this.setState({
-        dataForCollect: {
-          buttons: this.state.dataForCollect.buttons.concat(el),
-          name,
-        },
-      });
-      window.history.pushState({type, name}, name, `#${name}`);
-    }
-
-    if (this.state.currentValue) {
-      this.setState({
-        inputs: this.state.inputs.concat(this.state.currentValue),
-      })
-    }
-
-    if (this.state.type === 'roommates' && this.state.index === 8) {
-      const send = {
-        ...JSON.parse(JSON.stringify(this.state)),
-        sendDate: new Date(),
-      };
-      this.props.db.collection('profiles')
-        .add(send)
-        .then(function(docRef) {
-          console.log("Document written with ID: ", docRef.id);
-        })
-        .catch(function(error) {
-          console.error("Error adding document: ", error);
-        });
-    }
+  nextHandler = (childEl) => {
+    const {index} = this.state;
+    const newIndex = index + 1;
+    const block = blocks[newIndex];
+    const {type, messageData, chooseData, name} = block;
 
     this.setState({
-      questionsQuantity: this.state.questionsQuantity - 1,
-      currentValue: '',
+      dataForCollect: {
+        buttons: this.state.dataForCollect.buttons.concat(childEl),
+        name
+      },
     });
+
+    this.updateStateHandler(type, messageData, chooseData, newIndex, this.state.questionsQuantity - 1);
+    window.history.pushState({index: newIndex}, name, `#${name}`);
+
+    if (newIndex === blocks.length - 1) {
+      this.sendData();
+    }
   };
 
+  sendData() {
+    const send = {
+      ...JSON.parse(JSON.stringify(this.state)),
+      sendDate: new Date(),
+    };
+
+    this.props.db.collection('profiles')
+      .add(send)
+      .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(function(error) {
+        console.error("Error adding document: ", error);
+      });
+  }
+
   render() {
-    const {messageData, chooseData} = this.state;
+    const {messageData, chooseData, index} = this.state;
+    const currBlock = blocks[index];
+
     let buttonsInChooseData = [];
 
     if (chooseData.length) {
-      buttonsInChooseData = chooseData.map((el, index) => {
-        return <Button key={index} onClick={() => this.nextHandler(el)} text={el} />
+      buttonsInChooseData = chooseData.map((el, elIndex) => {
+        return <Button key={elIndex} onClick={() => this.nextHandler(el)} text={el} />
       });
     }
 
@@ -220,8 +119,11 @@ class View extends React.Component {
         <Message
           type={this.state.type}
           index={this.state.index}
-          value={this.state.currentValue}
-          inputHandler={this.inputHandler}>{messageData}</Message>
+          inputHandler={this.inputHandler}
+          value={this.state.form[currBlock.name] || ''}
+        >
+          {messageData}
+        </Message>
         {buttons}
       </div>
     );
