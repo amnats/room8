@@ -1,0 +1,180 @@
+.MainWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 100px;
+  background-color: #FFFFFF;
+}
+
+.LandingWrapper {
+  padding: 0 10px;
+}
+
+.LandingPromoBlock {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  background-image: url("../media/landing/ryan-christodoulou-Vra_DPrrBlE-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.LandingTextWrapper {
+  background: rgba(0,0,0,0.3);
+  padding: 20px;
+}
+
+.LText {
+  font-size: 40px;
+  line-height: 60px;
+  letter-spacing: 1px;
+}
+
+.MText {
+  line-height: 50px;
+  font-size: 35px;
+  letter-spacing: 1px;
+}
+
+.SText {
+  line-height: 30px;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.Bold {
+  font-weight: bold;
+}
+
+.WhiteFont {
+  color: #FFFFFF;
+}
+
+/* Button */
+
+.LandingButtonBlock {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  background-color: #FFFFFF;
+}
+
+.LandingButton {
+  width: 200px;
+  height: 50px;
+  background-color: #4b848b;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Benefits */
+
+.LandingBenefitsBlock {
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.LandingBenefitsItem {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 0;
+}
+
+.LandingBenefitsItemLine {
+  width: 50px;
+  height: 2px;
+  margin: 20px 0 0 0;
+  background-color: #4b848b;
+}
+
+.LandingBenefitsItemContent {
+  width: 200px;
+  padding: 0 40px;
+  text-align: justify;
+}
+
+.LandingBenefitsTitle {
+  padding: 60px 0 30px 0;
+}
+
+.LandingBenefitsItemTitle {
+  font-size: 18px;
+  letter-spacing: 1px;
+  padding: 0 0 10px 0;
+  line-height: 40px;
+}
+
+.LandingBenefitsItemDescription {
+  color: #747474;
+  line-height: 30px;
+}
+
+.LandingContacts {
+  padding: 30px 0 200px 0;
+}
+
+.LandingContactsTitle {
+  padding: 100px 0 80px 0;
+  text-align: center;
+}
+
+.LandingEmail a {
+  color: #4b848b;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 500px) {
+  .LandingBenefitsItemContent {
+    width: 300px;
+    padding: 0 40px;
+    text-align: justify;
+  }
+}
+
+
+@media screen and (min-width: 1000px) {
+  .LandingWrapper {
+    padding: 0 50px;
+  }
+
+  .LandingBenefitsItemContent {
+    width: 800px;
+    padding: 0 40px;
+    text-align: justify;
+  }
+
+  .LText {
+    font-size: 50px;
+    line-height: 100px;
+    letter-spacing: 1px;
+  }
+
+  .MText {
+    line-height: 50px;
+    font-size: 30px;
+    letter-spacing: 1px;
+  }
+
+  .SText {
+    line-height: 20px;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+
+  .LandingBenefitsTitle {
+    padding: 100px 0 80px 0;
+  }
+}
