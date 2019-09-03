@@ -74,12 +74,12 @@ export const blocks = [{
     <div>Дополнительный комментарий</div>
   </>),
   chooseData: ['Отправить'],
-  type: 'roommates',
+  type: 'text_input',
   name: 'additionalComments',
 }, {
   messageData: (<>
     <div>Спасибо!</div>
-    <div>Я обработаю информацию и в течение недели буду высылать вам подходящие анкеты.</div>
+    <div>Мы обработем информацию и в течение недели будем высылать вам подходящие анкеты.</div>
   </>),
   chooseData: [],
   type: 'last',
